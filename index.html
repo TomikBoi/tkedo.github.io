@@ -57,23 +57,43 @@
 			</table>
 
 			<form>
-				<div>
-					<label>First name:</label>
+				<div class=inputstyle>
+					<label for="firstname">First name:</label>
 					<input name="firstname" type="text">
 				</div>
-				<div>
-					<label>Last name:</label>
+				<div class="inputstyle">
+					<label for="lastname">Last name:</label>
 					<input name="lastname" type="text">
 				</div>
-				<div>
-					<label>email:</label>
-					<input name="email" type="text" placeholder="yourmail@gmail.com">
-				<div>
-					<label>Age(In full years)</label>
+				<div class="inputstyle">
+					<label for="email">Email:</label>
+					<input name="email" type="email" placeholder="yourmail@domain.com">
+				</div>
+				<div class="inputstyle">
+					<label for="age">Age (In full years)</label>
 					<input name="age" type="text">
 				</div>
+				<div class="inputstyle">
+					<label for="country">Country</label>
+					<select id="country" name="country" class="dd">
+							<option value="Latvia">Latvia</option>
+							<option value="Estonia">Estonia</option>
+							<option value="Lithuania">Lithuania</option>
+							<option value="Russia">Russia</option>
+					</select>
+				</div>
+				<div class="inputstyle align">
+					<label>Description:</label>
+					<textarea name="message" class="ta"></textarea>
+				</div>
+				<div class="cb">
+					<label for="like">I am enjoying this:</label>
+						<input class="space" type="radio" name="like" value="yes" checked>Yes<br>
+						<input type="radio" name="like" value="no">No<br>
+				</div>
+				<div class="inputstyle">
+					<button>Save</button>
+				</div>
 			</form>
-
-
 		</body>
 </html>
