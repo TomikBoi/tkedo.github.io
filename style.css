@@ -8,6 +8,10 @@ td, th {
   border: 1px solid black;
 }
 
+form {
+  display: inline-block;
+}
+
 .inputstyle {
   justify-content: space-between;
   flex-direction: row;
@@ -38,3 +42,19 @@ td, th {
   margin-left: 58px;
 }
 
+.links {
+  display: block;
+  box-sizing: border-box;
+  width: fit-content;
+}
+
+.image {
+  width: 300px;
+  height: 200px;
+  float: right;
+}
+
+.noimg {
+  float: right;
+  margin-top: 185px;
+}
