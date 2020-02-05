@@ -1,0 +1,31 @@
+h1 {
+  color: red
+}
+
+div > p {
+  color: blue;
+}
+
+.purple {
+  color: purple;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.allchild * {
+  color: pink;
+}
+
+[href*=".com"] {
+  border: red solid 2px;
+}
+
+h5,h6 {
+  font-size: 20px;
+}
+
+h5:hover {
+  border: red dotted 3px;
+}
