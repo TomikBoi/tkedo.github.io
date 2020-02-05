@@ -1,25 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>Navigacija</title>
-      <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="topnav">
-      <img class="logo" src="https://logopond.com/logos/d224a95697a22ab9c8678335ac067dad.png">
-      <div class="dropdown">
-        <span class="dropb">MENU</span>
-        <div class="dropcontent"> 
-         <ul>
+
+<head>
+  <title>Navigacija</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <img class="logo" src="https://logopond.com/logos/d224a95697a22ab9c8678335ac067dad.png">
+    <div class="dropdown">
+      <span class="dropb">MENU</span>
+      <div class="dropcontent">
+        <ul>
           <li>Option 1</li>
           <li>Option 2</li>
           <li>Option 3</li>
-          </div>
-        </ul>
       </div>
-      <div class="form">
-        
+      </ul>
+    </div>
+  </div>
+  <div class="form">
+    <form>
+      <h1>Product registration form</h1>
+      <div class="inputstyle">
+        <label for="name">Name:</label>
+        <input name="name" type="text">
       </div>
-   </div>
-  </body>
+      <div class="inputstyle">
+        <label for="category">Category</label>
+        <select  class="dropdownwidth" id="category" name="category">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript">Javascript</option>
+        </select>
+      </div>
+      <div class="inputstyle">
+        <label for="price">Price</label>
+        <input class="pricewidth" type="number" name="price" min="1" max="100">
+      </div>
+      <div class="inputstyle">
+        <label for="quantity">Quantity</label>
+        <input class="pricewidth" type="number" name="quantity" min="1" max="100">
+      </div>
+      <div class="inputstyle align">
+        <label>Description:</label>
+        <textarea class="description" name="message" class="ta"></textarea>
+      </div>
+      <div class="checkbox">
+        <label>Can be sold:</label>
+        <input class="checkboxmargin" type="checkbox" name="yes" value="yes">Yes<br>
+        <input type="checkbox" name="no" value="no">No<br>
+      </div>
+      <div class="inputstyle">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>
