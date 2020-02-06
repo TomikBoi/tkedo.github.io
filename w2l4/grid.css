@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  background-color: khaki;
+  grid-template-columns: 100px 200px 300px 400px;
+  grid-template-rows: 100px 200px 300px 400px;
+}
+
+.wrapper > div {
+  background-color: black;
+}
+.wrapper > div:nth-child(odd){
+  background-color: purple;
+}

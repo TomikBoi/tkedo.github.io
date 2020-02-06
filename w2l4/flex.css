@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  background-color: green;
+  height: 100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.wrapper > div {
+  width: 100px;
+  height: 100px;
+  background-color: red; 
+}
+
+.wrappertwo {
+  display: flex;
+  background-color: blue;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 400px;
+}
+
+.wrappertwo > div {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  order: 2;
+}
+
+.wrappertwo > div:last-child {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  order: 1;
+}
+
+.wrapperthree {
+  display: flex;
+  background-color: pink;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperthree > div {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+  }
+
+/* @media screen and (max-width: 720px) {
+  .wrapper {
+    flex-direction: column;
+  }
+} 

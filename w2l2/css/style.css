@@ -1,7 +1,7 @@
 h1 {
   color: red
 }
-
+/* First child */
 div > p {
   color: blue;
 }
@@ -22,10 +22,17 @@ div > p {
   border: red solid 2px;
 }
 
-h5,h6 {
+h5, h6 {
   font-size: 20px;
 }
 
 h5:hover {
   border: red dotted 3px;
 }
+
+
+input {}
+
+h1 .name {} /* bez atstarpes noteiktam h1 tagam, ar atstarpem taa child */
+
+a:not(.no-style) {} /* visiem bez stila */
