@@ -1,0 +1,121 @@
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  .hidden {
+      display: block;
+  }
+}
+
+
+.topnav {
+	background-color: rgb(218, 180, 218);
+	width: 100%;
+	height: 50px
+}
+
+.logo {
+	height: 50px;
+	width: 50px;
+	margin-left: 50px;
+	float: left;
+}
+
+.dropdown {
+	position: relative;
+}
+
+.dropb {
+	margin-top: 20px;
+	margin-right: 200px;
+	float: right;
+	cursor: pointer;
+}
+
+.dropcontent {
+	display: none;
+	top: 32px;
+	position: absolute;
+	right: 167px;
+	width: 150px;
+}
+
+ul li {
+	list-style: none;
+	padding: 5px;
+	background-color: rgb(218, 180, 218);
+	text-align: center;
+}
+
+.option {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.dropdown:hover .dropcontent {
+	display: block;
+	cursor: pointer;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	margin-top: 50px;
+	width: 400px;
+	border: 1px solid black;
+	padding: 5px;
+	display: inline-block;
+}
+
+.inputstyle {
+	justify-content: space-between;
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.dropdownwidth {
+	width: 173px;
+}
+
+.pricewidth {
+	width: 169px;
+}
+
+.description {
+	width: 167px;
+	height: 30px;
+}
+
+.checkbox {
+	display: inline-flex;
+	margin-bottom: 5px;
+}
+
+.checkboxmargin {
+	margin-left: 146px;
+}
+
+.table {
+	float: right;
+}
+
+table {
+	margin-top: 85px;
+	border-collapse: collapse;
+	width: 600px;
+	text-align: center;
+}
+
+td, th {
+	padding: 5px;
+	border: 1px solid black;
+}
+
+.hidden {
+  display: none;
+}
