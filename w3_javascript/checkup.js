@@ -54,10 +54,35 @@ function fn4(var1, ...var2) {
 		})
 }
 
-//eate a function that accepts object as an parameters and reads assigns it's key/value pairs to function variables
+//Create a function that accepts object as an parameters and reads assigns it's key/value pairs to function variables
 
 function fn5(params) {
 		const {name, age, gender} = params
-		console.log()
+		console.log("My name is " + name)
+		console.log("Im " + age + " old");
 }
 
+fn5({name: "Ed", age: "25", gender:"dog"})
+
+// Create your own prototype
+// create new instance
+// call a function from it
+
+function user(username,password) {
+	this.username = username;
+	this.password = password;
+
+	this.checkuser = function(uname,pass){
+		if(this.username === uname && this.password === pass) {
+			console.log("Login Success");
+		} else {
+			console.log("Please check you username or password")
+		}
+	}
+}
+
+let toms = new user("tomixxx", "parole")
+
+toms.checkuser("tomixxx", "parole")
+
+toms.checkuser("tomix", "parole")
