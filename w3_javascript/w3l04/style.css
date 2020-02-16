@@ -1,0 +1,67 @@
+#data-table {
+  margin-top: 85px;
+	border-collapse: collapse;
+	width: 80%;
+  text-align: center;
+  margin-left: auto;
+}
+
+#data-table td,
+#data-table th {
+	padding: 5px;
+	border: 1px solid black;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.make-request {
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+}
+
+.input-wrapper input {
+  width: 100%;
+}
+
+.btn-wrapper {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-wrapper button {
+  height: 30px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.aside-left {
+  display: inline-block;
+  width: 20%;
+}
+
+.aside-right {
+  padding: 0 20px;
+  display: inline-block;
+  width: 80%;
+}
+
+.aside-right .progress {
+  height: 5px;
+  width: 100%;
+  background-color: gray;
+
+}
+
+.btn-checkup {
+  color: red
+}
+
+.btn-checkup-new {
+  color: blue;
+}
+
