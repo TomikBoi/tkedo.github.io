@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<div id="sidebar" class="sidebar">
+		<form name="form" method="POST" class="sideform" onsubmit="return validateForm()">
+			<label for="username">Username</label>
+			<input id="username" class="inputstyle" for="username" type="text">
+			<label for="password">Password</label>
+			<input id="password" class="inputstyle" for="password" type="text">
+			<label for="offer">Send me special deals</label>
+			<input type="checkbox" id="offer" name="offer" value="offer" onclick="checkbox()">
+			<div id="dropdown">
+				<label for="frequency-label">I'm willing to receive them:</label>
+				<select id="frequency">
+					<option value="day">Daily</option>
+					<option value="week">Weekly</option>
+					<option value="month">Monthly</option>
+				</select>
+			</div>
+			<input id="btn-subscribe" class="btn-subscribe" type="submit" value="Submit">
+		</form>
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+        <h1>Tank you, $username$, we have received your request</h1>
+    </div>
+</div>
+
+		</div>
+
+
+	</div>
+	<div id="main" class="main">
+		<button id="btn-toggle-open" class="btn-toggle-open">Open Form</button>
+		<button id="btn-toggle-close" class="btn-toggle-close">Close Form</button>
+		<button id="trigger" class="btn-toggle-open">Popup</button>
+		<table class="info-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>username</th>
+					<th>E-mail</th>
+					<th>Special offer</th>
+					<th>Offer Cycle</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<body>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</body>
+		</table>
+	</div>
+	<script src="script.js"></script>
+
+</body>
+
+</html>
