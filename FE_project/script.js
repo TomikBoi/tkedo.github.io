@@ -1,10 +1,11 @@
-document.getElementById('btn-toggle-open').addEventListener('click',open)
-document.getElementById('btn-toggle-close').addEventListener('click',close)
+// document.getElementById('btn-toggle-open').addEventListener('click',toggle);
 
+var btn = document.getElementById('btn-toggle-open')
+
+// document.getElementById('btn-toggle-close').addEventListener('click', close);
+// document.getElementById('btn-toggle-open').addEventListener('click',open);
 
 function open() {
-  // var element = document.getElementById("btn-toggle-open");
-  // element.classList.toggle("btn-toggle-close");
   document.getElementById("sidebar").style.display = "block";
 }
 
@@ -12,26 +13,37 @@ function close() {
   document.getElementById("sidebar").style.display = "none";
 }
 
+function changeClass() {
+  var toggleBtn = document.getElementById("btn-toggle-open");
+  toggleBtn.classList.toggle("btn-toggle-close");
+}
+
+window.onload = function () {
+  document.getElementById("btn-toggle-open").addEventListener('click', changeClass);
+}
+
 //Papildus iespejas, pec checkbox = true
 function checkbox() {
   var checkBox = document.getElementById("offer");
   var text = document.getElementById("dropdown");
-  if (checkBox.checked == true){
+  if (checkBox.checked == true) {
     text.style.display = "block";
   } else {
     text.style.display = "none";
   }
 }
 
+
+
 //formas validacija
 function validateForm() {
-  var username = document.forms["form"]["username"].value;
-  if (username == "") {
+  if (username === "") {
+    var username = document.forms["form"]["username"].value;
     alert("Username vai password nevar būt tukšs");
     return false;
   }
-  var password = document.forms["form"]["password"].value;
-  if (password == "") {
+  if (password === "") {
+    var password = document.forms["form"]["password"].value;
     alert("Username vai password nevar būt tukšs");
     return false;
   }
@@ -44,18 +56,18 @@ var trigger = document.getElementById("trigger");
 var closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
-    modal.classList.toggle("show-modal");
+  modal.classList.toggle("show-modal");
 }
 
 function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
+  if (event.target === modal) {
+    toggleModal();
+    document.getElementById("heading").innerHTML = "Paragraph changed!";
+  }
 }
 
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
-
-
+// localstorage

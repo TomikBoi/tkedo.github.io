@@ -32,6 +32,7 @@ select {
   margin-left: 25px;
   height: 35px;
   width: 125px;
+  color: white;
   background-color: green;
   border: 1px solid black;
 }
