@@ -1,9 +1,5 @@
-// document.getElementById('btn-toggle-open').addEventListener('click',toggle);
-
-var btn = document.getElementById('btn-toggle-open')
-
-// document.getElementById('btn-toggle-close').addEventListener('click', close);
-// document.getElementById('btn-toggle-open').addEventListener('click',open);
+document.getElementById('btn-toggle-close').addEventListener('click', close);
+document.getElementById('btn-toggle-open').addEventListener('click',open);
 
 function open() {
   document.getElementById("sidebar").style.display = "block";
@@ -13,14 +9,11 @@ function close() {
   document.getElementById("sidebar").style.display = "none";
 }
 
-function changeClass() {
-  var toggleBtn = document.getElementById("btn-toggle-open");
-  toggleBtn.classList.toggle("btn-toggle-close");
-}
+// function changeClass() {
+//   var toggleBtn = document.getElementById("btn-toggle-open");
+//   toggleBtn.classList.toggle("btn-toggle-close");
+// }
 
-window.onload = function () {
-  document.getElementById("btn-toggle-open").addEventListener('click', changeClass);
-}
 
 //Papildus iespejas, pec checkbox = true
 function checkbox() {
@@ -54,15 +47,16 @@ function validateForm() {
 var modal = document.querySelector(".modal");
 var trigger = document.getElementById("trigger");
 var closeButton = document.querySelector(".close-button");
+var username = document.forms["form"]["username"].value;
 
 function toggleModal() {
   modal.classList.toggle("show-modal");
+  document.getElementById("heading").innerHTML = "Thank you for joining out subscribers list" + username;
 }
 
 function windowOnClick(event) {
   if (event.target === modal) {
     toggleModal();
-    document.getElementById("heading").innerHTML = "Paragraph changed!";
   }
 }
 
@@ -71,3 +65,16 @@ closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 // localstorage
+let subscribeList = [];
+
+const addSubscribe = event => {
+  event.preventDefault();
+  let subscribe = {
+    name: document.getElementById("username").value,
+    password: document.getElementById("password").value,
+  };
+  subscribeList.push(subscribe);
+
+  localStorage.setItem("SubscriberList", JSON.stringify(subscribeList));
+};
+
