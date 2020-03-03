@@ -5,6 +5,8 @@ class User {
     private $password;
     private $id;
 
+    const SALT = "qwerty"; //zem mainiga slepsies rakst lielums, kuru pievienos parolem
+
   public function __construct($data){
     $this->name = $data["name"];
     $this->password = $this->hashPassword($data["password"]);
@@ -25,7 +27,8 @@ public function setPassword($newPassword){
 }
 //atsevishka funkcija, lai heshot
 private function hashPassword($password){
-  return  password_hash($password, PASSWORD_DEFAULT);
+  $saltedPassword = $password . self::SALT;
+  return  password_hash($saltedPassword, PASSWORD_DEFAULT);
 }
 
 public function getPassword(){
