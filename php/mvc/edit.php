@@ -1,5 +1,9 @@
 <?php 
-require_once "./helpers/db-wrapper.php"; //savienot failus 
+require_once "./models/UserModel.php"; //savienot failus 
+
+$name = '';
+$password = '';
+$id = '';
 
 if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 	
@@ -12,8 +16,14 @@ if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
   $password = $_POST["password"];
   $id = $_POST["id"];
 
+  $data = [
+    "name"=> $_POST["name"],
+    "password"=> $_POST["password"],
+    "id" => $_POST["id"],
+  ];
 
-	DB::run("UPDATE users SET name='$name', password='$password' WHERE id=$id");
+  UserModel::updateUser($data);
+	// DB::run("UPDATE users SET name='$name', password='$password' WHERE id=$id");
 
 	// $db->closeConnection();
 
@@ -21,16 +31,14 @@ if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 
 }
 
-$name = '';
-$password = '';
-$id = '';
-
 if(isset($_GET["id"])){ //nolasam id no datubaze
-  $id = $_GET["id"];
+  // $id = $_GET["id"];
   // $db = new DB();
 	// $db->openConnection();
 
-  $result = DB::run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
+
+  $result = UserModel::getUserById($_GET["id"]);
+  // $result = DB::run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
 
   // $db->closeConnection();
   
@@ -40,42 +48,7 @@ if(isset($_GET["id"])){ //nolasam id no datubaze
     $id = $row["id"];
   }
 }
+
+require_once "./views/users-form.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Project</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-</head>
-
-<body  class="p-3">
-  <div class="d-flex justify-content-center">
-    <form action="/tkedo.github.io/php/mvc/edit.php" method="POST">
-
-      <div class="form-group">
-        <label>
-						Name
-					<input class="form-control" name="name" value="<?=$name?>"> 
-        </label>
-      </div>
-      <div class="form-group">
-        <label>
-						Password
-					<input class="form-control" name="password" value="<?=$password?>">
-        </label>
-      </div>
-      <input hidden name="id" value="<?=$id?>">
-      <button class="btn btn-primary" tyoe="submit" name="submit">Save (PHP)</button>
-      <button class="btn btn-primary js-save-data">Save (jQuery)</button>
-    </form>
-  </div>
-</body>
-
-</html>
