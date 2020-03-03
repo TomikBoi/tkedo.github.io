@@ -48,7 +48,7 @@ if(isset($_GET["id"])){ //nolasam id no datubaze
     $id = $row["id"];
   }
 }
-
+$edit = true;
 require_once "./views/users-form.php";
 ?>
 

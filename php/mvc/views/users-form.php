@@ -13,7 +13,7 @@
 
 <body  class="p-3">
   <div class="d-flex justify-content-center">
-    <form action="../mvc/edit.php" method="POST">
+    <form action="../mvc/<?= $edit ? 'edit.php' : 'add.php' ?>" method="POST">
 
       <div class="form-group">
         <label>

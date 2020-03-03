@@ -9,11 +9,11 @@ class UserModel {
     return DB::run("SELECT name, password, id FROM users LIMIT " . $limit); 
   }
 
-  public static function addUser($data) 
+  public static function addUser(User $data) 
   {
-    $name = $data["name"];
-    $password = $data["password"];
-    DB::run("INSERT INTO users (name, password) VALUES ('$name', '$password')");
+    $name = $data->getName();
+    $password = $data->getPassword();
+    return DB::run("INSERT INTO users (name, password) VALUES ('$name', '$password')");
   }
 
   public static function getUserById($id) 
