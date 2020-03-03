@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +17,18 @@
 <body class="p-3">
   <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
     <a class="navbar-brand" href="#">Users</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <h4 <?= isset($_SESSION["user_id"]) ? '' : 'hidden' ?>>
+     You have signed in as <?= $_SESSION["user_name"]?></h4>
 
     <!-- TODO create add.php logic -->
+    
     <button class="btn btn-primary my-2 my-sm-0" type="submit"><a class="text-white"
         href="/tkedo.github.io/php/mvc/add.php">Add User</a></button>
-
+    <button <?= isset($_SESSION["user_id"]) ? 'hidden' : '' ?> class="btn btn-primary my-2 my-sm-0" type="submit"><a class="text-white"
+        href="/tkedo.github.io/php/mvc/login.php">Login</a></button>
+    <button <?= isset($_SESSION["user_id"]) ? '' : 'hidden' ?> class="btn btn-primary my-2 my-sm-0" type="submit"><a class="text-white"
+        href="/tkedo.github.io/php/mvc/logout.php">Logout</a></button>
+    
     </div>
   </nav>
 
