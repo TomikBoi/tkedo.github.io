@@ -1,4 +1,5 @@
 <?php 
+  
   session_start();
 
   if($_SESSION['user_id']) { //ja lietotajs pierakstijis, vinjam nevers login formu
@@ -7,22 +8,26 @@
 
   if(isset($_POST["submit"])){
     require_once ".\helpers\db-wrapper.php";
+    require_once "./entity/user.php";
     $name = $_POST["name"]; //piestaista mainigajam, lai varetu ielikt kverija
     $response = DB::run("SELECT * FROM users WHERE name='$name'");
-    $password; //sakuma parole ir tuksha, to pievieno velak
+    // $password; //sakuma parole ir tuksha, to pievieno velak
 
     if(!$response->num_rows) { //ja neeksiste user, tad tiek izdrukats pazinojums un ievades lauki
       echo "User doesn't exist";
     } else {
       while($row = mysqli_fetch_assoc($response)) { //pieprasa paroli no  DB
-        $password = $row["password"];
-        $user_id = $row["id"];
+        $user = new User($row);
+        // $password = $row["password"];
+        // $user_id = $row["id"];
         }
+        
+        // $saltedPassword = $_POST["password"] . $user::SALT;
     
-        $validPassword = password_verify($_POST["password"], $password); //pirmais, ko ieraksta user, otrais, ko atsuta pati db
+        $validPassword = password_verify($_POST["password"] . $user::SALT, $user->getPassword()); //pirmais, ko ieraksta user, otrais, ko atsuta pati db
     
         if($validPassword) {
-          $_SESSION['user_id'] = $user_id;
+          $_SESSION['user_id'] = $user->getId();
           $_SESSION['user_name'] = $_POST["name"];
           header("Location: /tkedo.github.io/php/mvc");
         } else {

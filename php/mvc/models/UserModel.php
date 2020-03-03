@@ -12,7 +12,7 @@ class UserModel {
   public static function addUser(User $data)
     {
         $name= $data->getName();
-        $password= $data->getPassword();
+        $password= User::hashPassword($data->getPassword());
         return DB::run("INSERT INTO users (name, password) VALUES ('$name', '$password')");
     }
 
