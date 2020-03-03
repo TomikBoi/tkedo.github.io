@@ -7,7 +7,7 @@ class User {
 
   public function __construct($data){
     $this->name = $data["name"];
-    $this->password = $data["password"];
+    $this->password = $this->hashPassword($data["password"]);
     $this->id = $data["id"];
 }
 
@@ -19,9 +19,13 @@ public function getName(){
   return $this->name;
 }
 
-
+//hesho paroli te, panjem teikstu, uztaisa nesalasama teksta
 public function setPassword($newPassword){
-  $this->password = $newPassword;
+  $this->password = $this->hashPassword($newPassword);
+}
+//atsevishka funkcija, lai heshot
+private function hashPassword($password){
+  return  password_hash($password, PASSWORD_DEFAULT);
 }
 
 public function getPassword(){
