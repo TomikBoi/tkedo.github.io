@@ -5,15 +5,15 @@ if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 	require_once "./models/UserModel.php"; //savienot failus 
 	require_once "./entity/user.php"; //savienot failus 
 
-	$user = new User();
-	$user->setName($_POST["name"]);
-	$user->setPassword($_POST["password"]); //tas pats kas zemak
+	// $user = new User();
+	// $user->setName($_POST["name"]);
+	// $user->setPassword($_POST["password"]); //tas pats kas zemak
 
-	// $user = new User($_POST);
-
+	$user = new User($_POST);
 	UserModel::addUser($user);
-
 	header("Location: /tkedo.github.io/php/mvc");
+
+	
 	// $db = new DB();
 
 	// $db->openConnection();
