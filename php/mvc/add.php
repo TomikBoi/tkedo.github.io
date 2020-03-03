@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
@@ -19,7 +19,6 @@ if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 	header("Location: /tkedo.github.io/php/mvc");
 
 }
-
 ?>
 
 

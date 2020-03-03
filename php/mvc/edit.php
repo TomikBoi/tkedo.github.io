@@ -4,18 +4,18 @@ require_once "./helpers/db-wrapper.php"; //savienot failus
 if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 	
 
-	$db = new DB();
+	// $db = new DB();
 
-	$db->openConnection();
+	// $db->openConnection();
 
 	$name = $_POST["name"]; //piesaista mainigajiem to kas ievadits laukos
   $password = $_POST["password"];
   $id = $_POST["id"];
 
 
-	$db->run("UPDATE users SET name='$name', password='$password' WHERE id=$id");
+	DB::run("UPDATE users SET name='$name', password='$password' WHERE id=$id");
 
-	$db->closeConnection();
+	// $db->closeConnection();
 
 	header("Location: /tkedo.github.io/php/mvc");
 
@@ -30,7 +30,7 @@ if(isset($_GET["id"])){ //nolasam id no datubaze
   // $db = new DB();
 	// $db->openConnection();
 
-	DB::run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
+  $result = DB::run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
 
   // $db->closeConnection();
   

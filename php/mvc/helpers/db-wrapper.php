@@ -46,9 +46,6 @@ class DB {
       die("SQL error: " . static::$connection->error . "</br>"); //sql atgriezh kljudu
     }
   }
-  
 }
-
+//nav jadefine jauna $db = newDB() instance, var pa taisno, vnk DB::closeConnection
 ?>
-
-<!-- nav jadefine jauna $db = newDB() instance, var pa taisno, vnk DB::closeConnection -->
