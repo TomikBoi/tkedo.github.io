@@ -8,7 +8,7 @@ class DB {
   //private, ja ir private vai protected, tad var izmantot tikai konkreta faila
   //protected
   //public, var izmantot citos failos
-   public function openConnection($dbname = NULL)
+   private static function openConnection($dbname = NULL)
   {
     //izveido mainigos, ar atsaucem pret datubazi
     $dbhost = "mysql-server-80";
@@ -25,13 +25,20 @@ class DB {
     }
   }
 
-  public function closeConnection()
+  private static function closeConnection()
   {
     static::$connection->close();
   }
 
-  public static function run($sql) { 
-    $response = static::$connection->query($sql);
+	public static function run($sql) 
+	{
+		if(!static::$connection) {
+			static::openConnection();
+		}
+  
+		$response = static::$connection->query($sql);
+		
+		static::closeConnection();
 
     if($response) {
       return $response; //ja atgriez datus, tad strada ar tiem
@@ -43,3 +50,5 @@ class DB {
 }
 
 ?>
+
+<!-- nav jadefine jauna $db = newDB() instance, var pa taisno, vnk DB::closeConnection -->

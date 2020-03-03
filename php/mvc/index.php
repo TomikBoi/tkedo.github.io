@@ -1,13 +1,15 @@
 <?php
 	require_once "./helpers/db-wrapper.php"; //savienot failus 
 
-	$db = new DB();//atver db
+	// $db = new DB();//atver db
 
-	$db->openConnection();//savienojas ar db
+	// $db->openConnection();//savienojas ar db
 
-  $result =	$db->run("SELECT * FROM users LIMIT 25");
+  // $result =	$db->run("SELECT * FROM users LIMIT 25");
 
-	$db->closeConnection();
+  // $db->closeConnection(); garaks pieraksts, katru funkciju vero atsevishki
+  
+  $result =	DB::run("SELECT * FROM users LIMIT 25"); //ar statik isaks pieraksts, uzreiz izvelas klasi un funkciju
 
 ?>
 

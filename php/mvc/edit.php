@@ -27,12 +27,12 @@ $id = '';
 
 if(isset($_GET["id"])){ //nolasam id no datubaze
   $id = $_GET["id"];
-  $db = new DB();
-	$db->openConnection();
+  // $db = new DB();
+	// $db->openConnection();
 
-	$result = $db->run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
+	DB::run("SELECT * FROM users WHERE id=$id"); //visus datus par konkreto lietotaja id
 
-  $db->closeConnection();
+  // $db->closeConnection();
   
   while($row = mysqli_fetch_assoc($result)) { //atsuta rezultatu, kuru ieliek mainigajos
     $name = $row["name"];
@@ -41,8 +41,6 @@ if(isset($_GET["id"])){ //nolasam id no datubaze
   }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -4,17 +4,17 @@
 if(isset($_POST["submit"])){ //vai pieprasijums atnaca no submit pogas
 	require_once "./helpers/db-wrapper.php"; //savienot failus 
 
-	$db = new DB();
+	// $db = new DB();
 
-	$db->openConnection();
+	// $db->openConnection();
 
 	$name = $_POST["name"]; //piesaista mainigajiem to kas ievadits laukos
 	$password = $_POST["password"];
 
 
-	$db->run("INSERT INTO users (name, password) VALUES ('$name', '$password')");
+	DB::run("INSERT INTO users (name, password) VALUES ('$name', '$password')");
 
-	$db->closeConnection();
+	// $db->closeConnection();
 
 	header("Location: /tkedo.github.io/php/mvc");
 
