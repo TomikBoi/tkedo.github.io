@@ -4,10 +4,10 @@ require_once ".\helpers\db-wrapper.php";
 
 class UserModel {
 
-  // public static function getAllUsers($limit = 25) 
-  // {
-  //   return DB::run("SELECT name, password, id FROM users LIMIT " . $limit); 
-  // }
+  public static function getAllDescription($limit = 25) 
+  {
+    return DB::run("SELECT description FROM todo LIMIT " . $limit); 
+  }
 
   public static function addDescription(User $data)
     {
