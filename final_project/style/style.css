@@ -19,3 +19,7 @@ li {
 .add {
   display: block !important;
 }
+
+.checkbox {
+  margin-right: 10px;
+}

@@ -1,6 +1,6 @@
-<?php session_start();
+<?php 
 require_once "./models/UserModel.php";
-$result =	UserModel::getAllDescription();
+$result =  UserModel::getAllDescription();
 ?>
 
 <!DOCTYPE html>
@@ -18,30 +18,26 @@ $result =	UserModel::getAllDescription();
 <body>
   <div class="wrapper">
     <div class="addtodo">
-    <form action="/tkedo.github.io/final_project/add.php" method="POST"> 
-    <textarea class="description" name="description"></textarea>
-    <button class="btn btn-primary my-2 my-sm-0 add" type="submit" name="submit">Add</a></button>
-    </form>
+      <form action="/tkedo.github.io/final_project/<?= $edit ? 'edit.php' : 'add.php' ?>" method="POST">
+        <textarea class="description" name="description" required  maxlength="25" value="<?=$description?>"></textarea>
+        <input hidden name="id" value="<?=$id?>">
+        <button class="btn btn-primary my-2 my-sm-0 add" type="submit" name="submit">Add</a></button>
+      </form>
     </div>
     <ul>
-    <?php while($row = mysqli_fetch_array($result)) { ?>  atsuta datus no pieprasijuma
-      <li><?=$row["description"]?></li>
-      <a href="/tkedo.github.io/php/mvc/edit.php?id=<?=$row["id"]?>" class="btn btn-primary">Edit</a>
-
-          <!-- TODO create delete.php logic -->
-          <a href="/tkedo.github.io/php/mvc/delete.php?id=<?=$row["id"]?>" class="btn btn-danger">Delete (PHP)</a>
-      <!-- <li id="1"><input type="checkbox"> WhatINeedToDo :: <a href="" class="btn btn-primary">Edit</a> :: <a href="" class="btn btn-danger">Delete</a></li>
-      <li id="2"><input type="checkbox"> WhatINeedToDo :: <a href="" class="btn btn-primary">Edit</a> :: <a href="" class="btn btn-danger">Delete</a></li>
-      <li id="3"><input type="checkbox"> WhatINeedToDo :: <a href="" class="btn btn-primary">Edit</a> :: <a href="" class="btn btn-danger">Delete</a></li>
-      <li id="4"><input type="checkbox"> WhatINeedToDo :: <a href="" class="btn btn-primary">Edit</a> :: <a href="" class="btn btn-danger">Delete</a></li> -->
-      <?php } ?> 
+      <?php while ($row = mysqli_fetch_array($result)) { ?>
+        <li><input class="checkbox" type="checkbox" id="<?=$row["id"]?>" name="checkbox" value="checked"><?= $row["description"]?>
+          <a href="/tkedo.github.io/final_project/edit.php?id=<?=$row["id"]?>" class="btn btn-primary">Edit</a>
+          <a href="/tkedo.github.io/final_project/delete.php?id=<?=$row["id"]?>" class="btn btn-warning">Delete</a>
+        </li>
+      <?php } ?>
     </ul>
 
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="script/script.js" async defer></script>
-  
+
 </body>
 
 </html>
